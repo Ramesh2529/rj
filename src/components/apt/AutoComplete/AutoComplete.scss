@@ -1,0 +1,42 @@
+.ne_dropdown_menu {
+    border: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 19.75rem;
+    margin: 0.25rem 0 0;
+    background-color: #fff;
+    box-shadow: inset 0 0 0 1px #edeeee, 0 0.25rem 0.5rem 0 rgba(22, 22, 22, 0.2);
+    border-radius: 0.25rem;
+    max-height: 300px;
+    overflow: auto;
+  
+    .ne-scope {
+      max-height: 50vh;
+      overflow-y: auto;
+      &:hover {
+        background-color: #edeeee;
+      }
+  
+      .ne_dropdown_item {
+        line-height: 1.25;
+        font-size: 1rem;
+        width: 100%;
+        text-align: left;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        position: relative;
+        color: #161616;
+        background-color: transparent;
+        padding: 0.25rem 1rem 0.25rem 1rem;
+        text-decoration: none;
+      }
+      .fc_checkmark {
+        color: #00cbe6;
+        font-size: 1.5rem;
+      }
+    }
+  }
+  
