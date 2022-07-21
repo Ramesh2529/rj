@@ -1,7 +1,6 @@
 import React, { Suspense, Fragment, lazy } from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Loader from './components/Loader/Loader';
-import { BASENAME } from './config/constant';
 import AdminLayout from './layouts/AdminLayout';
 // import { BASE_URL } from './config/constant';
 import AppointmentBook from './views/apt/aptTable/AptTable';
@@ -13,8 +12,8 @@ export const Navigation = () => (
 
   <Router >
     <Routes>
-      {/* <Route exact path="/" element={<AppointmentBook />} /> */}
       <Route exact path="/" element={<Signin1 />} />
+      <Route exact path="/appointmentbook" element={<AppointmentBook />} />
       <Route exact path="/otp" element={<Signin1 />} />
       {/* <Route path="*" element={<NotFound />} /> */}
     </Routes>

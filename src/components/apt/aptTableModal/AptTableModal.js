@@ -3,7 +3,7 @@ import { Button, Col, Form, Row } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import Divider from "@mui/material/Divider";
 import Btn from "../../Togglebutton/Togglebutton";
-import data from "../../Autocomplete/data.json";
+import data from "../../../components/apt/autoComplete/Data.json";
 import { useForm } from "react-hook-form";
 import "./Modal.scss";
 import CustomInput from "../CustomInput/CustomInput";

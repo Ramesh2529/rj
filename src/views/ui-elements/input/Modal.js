@@ -1,14 +1,14 @@
 import { forwardRef, useRef, useState } from "react";
-import { Button, Col, Form, Row } from "react-bootstrap";
+import { Button, Col, Form, Row, } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import Divider from "@mui/material/Divider";
 import Btn from "../../../components/apt/Togglebutton/Togglebutton";
-import data from "../../../components/apt/AutoComplete/Data.json";
+import data from "../../../components/apt/autoComplete/Data.json";
 //import { useForm } from "react-hook-form";
 import "./Modal.scss";
-import CustomInput from "../input/CustomInput";
-import CustomSelect from "../input/CustomSelect";
-import Autocomplete from "../../../components/apt/AutoComplete/AutoComplete";
+import CustomInput from "../../ui-elements/input/CustomInput";
+import CustomSelect from "../../ui-elements/input/CustomSelect";
+import Autocomplete from "../../../components/apt/autoComplete/AutoComplete";
 //import withClickOutside from "../../WithClickOutside/WidthClickOutside";
 import { useDetectOutsideClick } from "../../../components/apt/helper/useDetectOutsideClick";
 
@@ -33,6 +33,17 @@ const assitData = [
   { name: "Select Assistant 5", value: "5" },
 ];
 
+const serviceData = [
+  { name: "Select Assistant 1", value: "1" },
+  { name: "Select Assistant 2", value: "2" },
+  { name: "Select Assistant 3", value: "3" },
+  { name: "Select Assistant 4", value: "4" },
+  { name: "Select Assistant 5", value: "5" },
+];
+
+const counthours =["01","02","03","04"];
+const countmin=["00","15","30","45"];
+
 const CustomModal = (props) => {
   const {
     show,
@@ -50,6 +61,7 @@ const CustomModal = (props) => {
     fsList,
     onFsListItem,
     onOutSideClick,
+    counttime,
   } = props;
 
   // const [open, setOpen] = useState({
@@ -88,7 +100,7 @@ const CustomModal = (props) => {
             <Col md={12}>
               <span className="mr-1 fw-bold">Book Time:</span>
               <span>
-                {appointmentData.startTime} - {appointmentData.startTime}
+                {appointmentData.startTime} 
               </span>
             </Col>
           </Row>
@@ -141,7 +153,7 @@ const CustomModal = (props) => {
                     onChange={changeCreds}
                     // className={`form-control ${errors.phone && "invalid"}`}
                   />
-                  <small className="text-danger">{aptDataError.email}</small>
+                  {/* <small className="text-danger">{aptDataError.email}</small> */}
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <Form.Label htmlFor="heard">How Heard: </Form.Label>
@@ -155,11 +167,12 @@ const CustomModal = (props) => {
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <Form.Label htmlFor="service">Service: </Form.Label>
-                  <CustomInput
-                    type="text"
-                    name="service"
-                    onChange={changeCreds}
+                  <CustomSelect
                     value={appointmentData.service}
+                    name="heard"
+                    onChange={changeCreds}
+                    defaultValue="Select"
+                    selectData={serviceData}
                   />
                 </Form.Group>
                 <Form.Group className="mb-3">
@@ -181,14 +194,22 @@ const CustomModal = (props) => {
                         ampm={false}
                         label="24 hours"
                         name="startTime"
-                        format="HH:mm"
+                        // format="HH:mm"
+                        onChange={changeCreds}
+                        defaultValue="Select"
                         // value={activeTime}
-                        value={appointmentData.startTime}
+                        value={counttime}
                       />
                     </Form.Group>
                   </Col>
                   <Col md={6} sm={12}>
                     <Form.Label htmlFor="endTime">End :</Form.Label>
+                       {/* <Input
+                       type="time"
+                      name="endTime"
+                      onChange={changeCreds}
+                      value={appointmentData.endTime}>
+                      </Input> */}
                     <CustomInput
                       type="time"
                       name="endTime"

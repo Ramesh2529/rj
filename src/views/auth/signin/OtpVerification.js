@@ -82,7 +82,7 @@ const OtpVerification = ({ className, ...rest }) => {
 
                         <Row>
                             <Col mt={2}>
-                                <Link to="/otp">
+                                <Link to="/appointmentbook">
                                     <Button className="btn-block" color="primary" size="large" type="submit" variant="primary">
                                         Verify
                                     </Button>

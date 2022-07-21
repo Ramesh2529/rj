@@ -4,13 +4,14 @@ import React, { forwardRef, useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import Favicon from "react-favicon";
 import { validate } from "../../../helper/Validation";
-import MyCalender from "../../../components/apt/Calender/Calender";
+import MyCalender from "../../../components/apt/calender/Calender";
 import { tbodyList, tdata } from "../../../data/tableData";
 import { matchArrays } from "../../../components/apt/helper/search";
 //import Hover from "./Hovermodal";
 import "./AptTable.css";
 import CustomModal from "../../ui-elements/input/Modal";
-import firstNameList from "../../../components/apt/AutoComplete/Data.json";
+import firstNameList from "../../../components/apt/autoComplete/Data.json";
+import DateScroll from "../../../components/apt/dateScroll/DateScroll";
 
 const initialState = {
   tableId: "",
@@ -99,7 +100,7 @@ const AptTable = () => {
           isSuggestion: false,
         });
       }
-      if (event.target.value.length > 2) {
+      if (event?.target?.value?.length > 2) {
         setIsFieldOpen({
           ...isFieldOpen,
           isOtherFields: true,
@@ -270,7 +271,7 @@ const AptTable = () => {
 
   return (
     <div>
-      <Favicon url="http://londondermatologyclinic.com/wp-content/uploads/2020/02/cropped-favicon2-192x192.png" />
+
       <div
         style={{
           display: "flex",
@@ -302,6 +303,7 @@ const AptTable = () => {
           <div className="mx-1 ">
             <div>
               <MyCalender startDate={startDate} onChangeDate={onChangeDate} />
+              <DateScroll />
             </div>
           </div>
         </div>
